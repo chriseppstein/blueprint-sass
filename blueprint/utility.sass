@@ -1,0 +1,25 @@
+// Clearing floats without extra markup
+// Based on How To Clear Floats Without Structural Markup by PiE
+// [http://www.positioniseverything.net/easyclearing.html]
+=clearfix
+  display: inline-block
+  &:after
+    content: "."
+    display: block
+    height: 0
+    clear: both
+    visibility: hidden
+  * html &
+    height: 1px
+
+// Regular clearing
+// apply to column that should drop below previous ones.
+
+.clear
+  :clear both
+
+=nowrap
+  :white-space nowrap
+
+.nowrap
+  +nowrap
