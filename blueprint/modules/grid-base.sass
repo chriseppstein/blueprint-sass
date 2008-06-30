@@ -9,6 +9,8 @@
 !layout_grid_size = !layout_grid_width * !layout_grid_columns + (!layout_grid_margin * (!layout_grid_columns - 1))
 
 // Columns
+// Note: If you use this mixin without the class and want to support ie6
+//       you must set text-align left on your container element in an IE stylesheet.
 =container
   :width = !layout_grid_size
   :margin 0 auto
