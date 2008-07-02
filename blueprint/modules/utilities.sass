@@ -1,9 +1,76 @@
-@import modules/utilities-base
-// Regular clearing
-// apply to column that should drop below previous ones.
+// Clearing floats without extra markup
+// Based on How To Clear Floats Without Structural Markup by PiE
+// [http://www.positioniseverything.net/easyclearing.html]
+=clearfix
+  display: inline-block
+  &:after
+    content: "."
+    display: block
+    height: 0
+    clear: both
+    visibility: hidden
+  * html &
+    height: 1px
 
-.clear
-  :clear both
+=nowrap
+  :white-space nowrap
 
-.nowrap
-  +nowrap
+=highlight
+  :background #ff0
+
+=added
+  :background #060
+  :color #fff
+
+=removed
+  :background #900
+  :color #fff
+
+
+// Most of these utility classes are not "semantic". If you use them,
+// you are mixing your content and presentation. For shame!
+
+=blueprint-utilities
+  // Use this class on any div.span / container to see the grid.
+  .showgrid
+    :background url(/images/grid.png) 
+  // Regular clearing apply to column that should drop below previous ones.
+  .clear
+    :clear both
+  // turn off text wrapping for the element.
+  .nowrap
+    +nowrap
+  // Apply to an element that has floated children to make the bottom
+  // of the element fall _below_ the floated children.
+  .clearfix
+    +clearfix
+  .small
+    :font-size .8em
+    :margin-bottom 1.875em
+    :line-height 1.875em
+  .large
+    :font-size 1.2em
+    :line-height 2.5em
+    :margin-bottom 1.25em
+  .hide
+    :display none
+  .highlight
+    +highlight
+  .added
+    +added
+  .removed
+    +removed
+  .first
+    :margin-left 0
+    :padding-left 0
+  .last
+    :margin-right 0
+    :padding-right 0
+  .top
+    :margin-top 0
+    :padding-top 0
+  .bottom
+    :margin-bottom 0
+    :padding-bottom 0
+  .print-only
+    :display none

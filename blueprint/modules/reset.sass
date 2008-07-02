@@ -1,25 +1,73 @@
-@import modules/reset-base
+=reset
+  :margin 0
+  :padding 0
+  :border 0
+  :font
+    :weight inherit
+    :style inherit
+    :size 100%
+    :family inherit
+  :vertical-align baseline
 
-html,  div,  span,  object,  iframe,  h1,  h2,  h3,  h4,  h5,  h6,  p
+=reset-quotation
   +reset
+  :quotes "" ""
+  &:before,
+  &:after
+    :content ""
 
-body
+=reset-table-cell
+  +reset
+  :text-align left
+  :font-weight normal
+  :vertical-align middle
+
+=reset-table
+  +reset
+  :border-collapse separate
+  :border-spacing 0
+  :vertical-align middle
+
+=reset-body
+  +reset
+  :line-height 1.5
+
+// Mix this into the html element of your application
+// if you want a global reset (recommended).
+=blueprint-reset-html
+  +reset
+  div, span, object, iframe, h1, h2, h3, h4, h5, h6, p
+    +reset
+  body
+    +reset-body
+  blockquote, q
+    +reset-quotation
+  pre, a, abbr, acronym, address, code, del, dfn, em, img
+    +reset
+  dl, dt, dd, ol, ul, li, fieldset, form, label, legend, caption, tbody, tfoot, thead, tr
+    +reset
+  th, td, caption
+    +reset-table-cell
+  table
+    +reset-table
+  a img
+    :border none
+
+// Mix this into the body element of a blueprint page
+// if you want a selective reset
+=blueprint-reset-body
   +reset-body
-
-blockquote, q
-  +reset-quotation
-
-pre,  a,  abbr,  acronym,  address,  code,  del,  dfn,  em,  img
-  +reset
-
-dl,  dt,  dd,  ol,  ul,  li,  fieldset,  form,  label,  legend,  caption,  tbody,  tfoot,  thead,  tr
-  +reset
-
-th,  td, caption
-  +reset-table-cell
-
-table
-  +reset-table
-
-a img
-  :border none
+  div, span, object, iframe, h1, h2, h3, h4, h5, h6, p
+    +reset
+  blockquote, q
+    +reset-quotation
+  pre, a, abbr, acronym, address, code, del, dfn, em, img
+    +reset
+  dl, dt, dd, ol, ul, li, fieldset, form, label, legend, caption, tbody, tfoot, thead, tr
+    +reset
+  th, td, caption
+    +reset-table-cell
+  table
+    +reset-table
+  a img
+    :border none
