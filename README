@@ -1,5 +1,8 @@
 Blueprint-Sass is a project to port the blueprint-css framework to SASS.
 
+What it provides:
+* sass mixins to help you define blueprint styles for your application.
+
 To install:
 * copy the contents of the blueprint directory into your sass folder.
 
@@ -19,6 +22,3 @@ To install in a rails project:
   = stylesheet_link_tag 'application-print.css', :media => 'print'
   /[if IE]
     = stylesheet_link_tag 'application-ie.css', :media => 'screen, projection'
-
-What it provides:
-* sass mixins to help you define blueprint styles for your application.
