@@ -1,7 +1,7 @@
 Sass::Plugin.options ||= {}
 
-template_locations = Array(Sass::Plugin.options[:template_location])
-css_locations      = Array(Sass::Plugin.options[:css_location])
+template_locations = Sass::Plugin.options[:template_location].split(':')
+css_locations      = Sass::Plugin.options[:css_location].split(':')
 
 template_locations << "#{RAILS_ROOT}/app/stylesheets"
 template_locations << "#{RAILS_ROOT}/vendor/plugins/blueprint-sass/blueprint"
