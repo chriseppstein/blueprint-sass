@@ -1,5 +1,3 @@
-Sass::Plugin.options ||= {}
-
 template_locations = Sass::Plugin.options[:template_location].split(':')
 css_locations      = Sass::Plugin.options[:css_location].split(':')
 
