@@ -1,3 +1,1 @@
-This example demonstrates how you can import blueprint only into those pages having
-a body class of "bp", but still include the stylesheet across your application without
-any style bleed.
+This example demonstrates how you can import blueprint such that you don't get the default form styles except on forms with a class "blueprint".
