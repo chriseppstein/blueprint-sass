@@ -64,15 +64,15 @@ class BlueprintTest < Test::Unit::TestCase
     end
   end
 
-  def tempfile_loc(folder = "default")
+  def tempfile_loc(folder)
     absolutize("fixtures/#{folder}/tmp")
   end
   
-  def template_loc(folder = "default")
+  def template_loc(folder)
     absolutize("fixtures/#{folder}/templates")
   end
   
-  def save_loc(folder = "default")
+  def save_loc(folder)
     absolutize("fixtures/#{folder}/saved")
   end
 
