@@ -39,14 +39,14 @@ class BlueprintTest < Test::Unit::TestCase
   def with_templates(folder)
     old_template_loc = Sass::Plugin.options[:template_location].dup
     begin
-      Sass::Plugin.options[:template_location][template_loc('default')] = tempfile_loc('default')
+      Sass::Plugin.options[:template_location][template_loc(folder)] = tempfile_loc(folder)
       Sass::Plugin.update_stylesheets
       yield
     ensure
       Sass::Plugin.options[:template_location] = old_template_loc
     end
   rescue
-    save_output('default')    
+    save_output(folder)    
     raise
   end
 
