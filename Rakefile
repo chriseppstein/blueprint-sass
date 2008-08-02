@@ -29,6 +29,7 @@ task :examples do
   end
   require 'haml'
   require 'sass'
+  require 'pathname'
   FileList['examples/*'].each do |example|
     FileList["#{example}/*.haml"].each do |haml_file|
       basename = haml_file[9..-6]
@@ -42,14 +43,16 @@ task :examples do
     end
     FileList["#{example}/stylesheets/**/[^_]*.sass"].each do |sass_file|
       basename = sass_file[9..-6]
+      css_filename = "compiled_examples/#{basename}.css"
+      blueprint_sass = File.dirname(__FILE__).sub(%r{.*/},'')
       engine = Sass::Engine.new(open(sass_file).read,
                                   :filename => sass_file,
                                   :line_comments => true,
-                                  :load_paths => ['.', "#{File.dirname(__FILE__)}/blueprint"])
-      puts "Compiling #{sass_file} => compiled_examples/#{basename}.css"
+                                  :css_filename => css_filename,
+                                  :load_paths => ["#{example}/stylesheets", "#{File.dirname(__FILE__)}/blueprint"])
       target_dir = "compiled_examples/#{basename.sub(%r{/[^/]*$},'')}"
       FileUtils.mkdir_p(target_dir)
-      output = open("compiled_examples/#{basename}.css",'w')
+      output = open(css_filename,'w')
       output.write(engine.render)
       output.close      
     end
