@@ -22,3 +22,9 @@ To install in a rails project:
   = stylesheet_link_tag 'application-print.css', :media => 'print'
   /[if IE]
     = stylesheet_link_tag 'application-ie.css', :media => 'screen, projection'
+
+To run the unit tests:
+% rake test
+
+To compile the examples:
+% rake examples
