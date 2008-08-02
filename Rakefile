@@ -31,10 +31,10 @@ task :examples do
   require 'sass'
   require 'pathname'
   FileList['examples/*'].each do |example|
+    puts "Compiling #{example} -> compiled_examples/#{example.sub(%r{.*/},'')}"
     FileList["#{example}/*.haml"].each do |haml_file|
       basename = haml_file[9..-6]
       engine = Haml::Engine.new(open(haml_file).read, :filename => haml_file)
-      puts "Compiling #{haml_file} => compiled_examples/#{basename}"
       target_dir = "compiled_examples/#{basename.sub(%r{/[^/]*$},'')}"
       FileUtils.mkdir_p(target_dir)
       output = open("compiled_examples/#{basename}",'w')
