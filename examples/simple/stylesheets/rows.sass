@@ -1,0 +1,27 @@
+@import blueprint
+@import mixins
+
+!base_color= #5DB173
+
+#header,
+#navigation,
+#page,
+#footer
+  .site
+    +container
+
+#header
+  :background-color= !base_color + #333
+#navigation
+  :background-color= !base_color + #555
+  ul
+    +horizontal-list
+#page
+  :background-color= !base_color
+  #content
+    +span-18
+  #advertisement
+    +span-6
+    +last
+#footer
+  :background-color= !base_color + #666

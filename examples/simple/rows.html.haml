@@ -5,15 +5,16 @@
     %meta{'http-equiv' => "content-type", :content => "text/html;charset=UTF-8"}
     %title Blueprint Example: Simple Three Column Layout 
     %link{:rel => "stylesheet", :href=>"stylesheets/application.css", :media => 'screen, projection'}
-    %link{:rel => "stylesheet", :href=>"stylesheets/three_column.css", :media => 'screen, projection'}
+    %link{:rel => "stylesheet", :href=>"stylesheets/rows.css", :media => 'screen, projection'}
     %link{:rel => "stylesheet", :href=>"stylesheets/application-print.css", :media => 'print'}
     /[if IE]
       %link{:rel => "stylesheet", :href=>"stylesheets/application-ie.css", :media => 'screen, projection'}
   %body
-    #wrap.showgrid
-      #header
+    #header
+      .site
         %h1 Blueprint&ndash;Sass
-      #navigation
+    #navigation
+      .site
         %ul
           %li
             %a{:href=>"#"} Navigation #1
@@ -21,20 +22,22 @@
             %a{:href=>"#"} Navigation #2
           %li
             %a{:href=>"#"} Navigation #3
-      #content
-        %h2 Lorem Ipsum Dolor
-        %p
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-          exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-          dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-          mollit anim id est laborum.
-      #sidebar
+    #page
+      .site
+        #content
+          %h2 Lorem Ipsum Dolor
+          %p
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
+            deserunt mollit anim id est laborum.
         #advertisement
           %h3 Blueprint-Sass
           %p Semantic Markup
           %p Simple Layout
           %p Sensible Defaults
-      #footer
+    #footer
+      .site
         &copy; Copyright 2008 Christopher Eppstein
