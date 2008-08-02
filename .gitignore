@@ -5,3 +5,4 @@ test/rails
 test/tmp
 test/fixtures/*/tmp
 test/fixtures/*/saved
+compiled_examples
