@@ -14,7 +14,7 @@ end
 # allows testing with edge Haml by creating a test/haml symlink
 linked_haml = File.dirname(__FILE__) + '/haml'
 
-if File.exists?(linked_haml) && !$:.include?(linked_haml + '/lib/haml')
+if File.exists?(linked_haml) && !$:.include?(linked_haml + '/lib')
   puts "[ using linked Haml ]"
   $:.unshift linked_haml + '/lib'
 else
