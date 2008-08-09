@@ -24,6 +24,7 @@
 !layout_grid_margin = 10px
 
 // Do not edit below this line unless you really know what you're doing.
+!layout_grid_outer_width = !layout_grid_width + !layout_grid_margin
 !layout_grid_size = !layout_grid_width * !layout_grid_columns + (!layout_grid_margin * (!layout_grid_columns - 1))
 
 // Columns
@@ -34,439 +35,41 @@
   :margin 0 auto
   +clearfix
 
-// Sets up basic grid floating and margin.
-=span-base
+// Use this mixins to set the width of n columns.
+=column(!n)
   :float left
   :margin-right = !layout_grid_margin
+  :width = !layout_grid_width * !n + (!layout_grid_margin * (!n - 1))
 
-// Use these mixins to set the width of a column.
-=span-1
-  +span-base
-  :width = !layout_grid_width
-=span-2
-  +span-base
-  :width = !layout_grid_width * 2 + !layout_grid_margin
-=span-3
-  +span-base
-  :width = !layout_grid_width * 3 + (!layout_grid_margin * 2)
-=span-4
-  +span-base
-  :width = !layout_grid_width * 4 + (!layout_grid_margin * 3)
-=span-5
-  +span-base
-  :width = !layout_grid_width * 5 + (!layout_grid_margin * 4)
-=span-6
-  +span-base
-  :width = !layout_grid_width * 6 + (!layout_grid_margin * 5)
-=span-7
-  +span-base
-  :width = !layout_grid_width * 7 + (!layout_grid_margin * 6)
-=span-8
-  +span-base
-  :width = !layout_grid_width * 8 + (!layout_grid_margin * 7)
-=span-9
-  +span-base
-  :width = !layout_grid_width * 9 + (!layout_grid_margin * 8)
-=span-10
-  +span-base
-  :width = !layout_grid_width * 10 + (!layout_grid_margin * 9)
-=span-11
-  +span-base
-  :width = !layout_grid_width * 11 + (!layout_grid_margin * 10)
-=span-12
-  +span-base
-  :width = !layout_grid_width * 12 + (!layout_grid_margin * 11)
-=span-13
-  +span-base
-  :width = !layout_grid_width * 13 + (!layout_grid_margin * 12)
-=span-14
-  +span-base
-  :width = !layout_grid_width * 14 + (!layout_grid_margin * 13)
-=span-15
-  +span-base
-  :width = !layout_grid_width * 15 + (!layout_grid_margin * 14)
-=span-16
-  +span-base
-  :width = !layout_grid_width * 16 + (!layout_grid_margin * 15)
-=span-17
-  +span-base
-  :width = !layout_grid_width * 17 + (!layout_grid_margin * 16)
-=span-18
-  +span-base
-  :width = !layout_grid_width * 18 + (!layout_grid_margin * 17)
-=span-19
-  +span-base
-  :width = !layout_grid_width * 19 + (!layout_grid_margin * 18)
-=span-20
-  +span-base
-  :width = !layout_grid_width * 20 + (!layout_grid_margin * 19)
-=span-21
-  +span-base
-  :width = !layout_grid_width * 21 + (!layout_grid_margin * 20)
-=span-22
-  +span-base
-  :width = !layout_grid_width * 22 + (!layout_grid_margin * 21)
-=span-23
-  +span-base
-  :width = !layout_grid_width * 23 + (!layout_grid_margin * 22)
-=span-24
-  +span-base
-  :width = !layout_grid_width * 24 + (!layout_grid_margin * 23)
-  :margin
-    :right 0
-
-// Mixin to a column to append empty cols.
-=append-1
-  :padding-right = !layout_grid_width + !layout_grid_margin
-=append-2
-  :padding-right = (!layout_grid_width + !layout_grid_margin) * 2
-=append-3
-  :padding-right = (!layout_grid_width + !layout_grid_margin) * 3
-=append-4
-  :padding-right = (!layout_grid_width + !layout_grid_margin) * 4
-=append-5
-  :padding-right = (!layout_grid_width + !layout_grid_margin) * 5
-=append-6
-  :padding-right = (!layout_grid_width + !layout_grid_margin) * 6
-=append-7
-  :padding-right = (!layout_grid_width + !layout_grid_margin) * 7
-=append-8
-  :padding-right = (!layout_grid_width + !layout_grid_margin) * 8
-=append-9
-  :padding-right = (!layout_grid_width + !layout_grid_margin) * 9
-=append-10
-  :padding-right = (!layout_grid_width + !layout_grid_margin) * 10
-=append-11
-  :padding-right = (!layout_grid_width + !layout_grid_margin) * 11
-=append-12
-  :padding-right = (!layout_grid_width + !layout_grid_margin) * 12
-=append-13
-  :padding-right = (!layout_grid_width + !layout_grid_margin) * 13
-=append-14
-  :padding-right = (!layout_grid_width + !layout_grid_margin) * 14
-=append-15
-  :padding-right = (!layout_grid_width + !layout_grid_margin) * 15
-=append-16
-  :padding-right = (!layout_grid_width + !layout_grid_margin) * 16
-=append-17
-  :padding-right = (!layout_grid_width + !layout_grid_margin) * 17
-=append-18
-  :padding-right = (!layout_grid_width + !layout_grid_margin) * 18
-=append-19
-  :padding-right = (!layout_grid_width + !layout_grid_margin) * 19
-=append-20
-  :padding-right = (!layout_grid_width + !layout_grid_margin) * 20
-=append-21
-  :padding-right = (!layout_grid_width + !layout_grid_margin) * 21
-=append-22
-  :padding-right = (!layout_grid_width + !layout_grid_margin) * 22
-=append-23
-  :padding-right = (!layout_grid_width + !layout_grid_margin) * 23
-
-
-// Mixin to a column to prepend empty cols.
-=prepend-1
-  :padding-left = !layout_grid_width + !layout_grid_margin
-=prepend-2
-  :padding-left = (!layout_grid_width + !layout_grid_margin) * 2
-=prepend-3
-  :padding-left = (!layout_grid_width + !layout_grid_margin) * 3
-=prepend-4
-  :padding-left = (!layout_grid_width + !layout_grid_margin) * 4
-=prepend-5
-  :padding-left = (!layout_grid_width + !layout_grid_margin) * 5
-=prepend-6
-  :padding-left = (!layout_grid_width + !layout_grid_margin) * 6
-=prepend-7
-  :padding-left = (!layout_grid_width + !layout_grid_margin) * 7
-=prepend-8
-  :padding-left = (!layout_grid_width + !layout_grid_margin) * 8
-=prepend-9
-  :padding-left = (!layout_grid_width + !layout_grid_margin) * 9
-=prepend-10
-  :padding-left = (!layout_grid_width + !layout_grid_margin) * 10
-=prepend-11
-  :padding-left = (!layout_grid_width + !layout_grid_margin) * 11
-=prepend-12
-  :padding-left = (!layout_grid_width + !layout_grid_margin) * 12
-=prepend-13
-  :padding-left = (!layout_grid_width + !layout_grid_margin) * 13
-=prepend-14
-  :padding-left = (!layout_grid_width + !layout_grid_margin) * 14
-=prepend-15
-  :padding-left = (!layout_grid_width + !layout_grid_margin) * 15
-=prepend-16
-  :padding-left = (!layout_grid_width + !layout_grid_margin) * 16
-=prepend-17
-  :padding-left = (!layout_grid_width + !layout_grid_margin) * 17
-=prepend-18
-  :padding-left = (!layout_grid_width + !layout_grid_margin) * 18
-=prepend-19
-  :padding-left = (!layout_grid_width + !layout_grid_margin) * 19
-=prepend-20
-  :padding-left = (!layout_grid_width + !layout_grid_margin) * 20
-=prepend-21
-  :padding-left = (!layout_grid_width + !layout_grid_margin) * 21
-=prepend-22
-  :padding-left = (!layout_grid_width + !layout_grid_margin) * 22
-=prepend-23
-  :padding-left = (!layout_grid_width + !layout_grid_margin) * 23
-
-=pull-base
-  :float left
-  :position relative
-
-=pull-1
-  +pull-base
-  :margin-left = !layout_grid_width + !layout_grid_margin - ((!layout_grid_width + !layout_grid_margin) * 2)
-=pull-2
-  +pull-base
-  :margin-left = !layout_grid_width + !layout_grid_margin - ((!layout_grid_width + !layout_grid_margin) * 3)
-=pull-3
-  +pull-base
-  :margin-left = !layout_grid_width + !layout_grid_margin - ((!layout_grid_width + !layout_grid_margin) * 4)
-=pull-4
-  +pull-base
-  :margin-left = !layout_grid_width + !layout_grid_margin - ((!layout_grid_width + !layout_grid_margin) * 5)
-=pull-5
-  +pull-base
-  :margin-left = !layout_grid_width + !layout_grid_margin - ((!layout_grid_width + !layout_grid_margin) * 6)
-=pull-6
-  +pull-base
-  :margin-left = !layout_grid_width + !layout_grid_margin - ((!layout_grid_width + !layout_grid_margin) * 7)
-=pull-7
-  +pull-base
-  :margin-left = !layout_grid_width + !layout_grid_margin - ((!layout_grid_width + !layout_grid_margin) * 8)
-=pull-8
-  +pull-base
-  :margin-left = !layout_grid_width + !layout_grid_margin - ((!layout_grid_width + !layout_grid_margin) * 9)
-=pull-9
-  +pull-base
-  :margin-left = !layout_grid_width + !layout_grid_margin - ((!layout_grid_width + !layout_grid_margin) * 10)
-=pull-10
-  +pull-base
-  :margin-left = !layout_grid_width + !layout_grid_margin - ((!layout_grid_width + !layout_grid_margin) * 11)
-=pull-11
-  +pull-base
-  :margin-left = !layout_grid_width + !layout_grid_margin - ((!layout_grid_width + !layout_grid_margin) * 12)
-=pull-12
-  +pull-base
-  :margin-left = !layout_grid_width + !layout_grid_margin - ((!layout_grid_width + !layout_grid_margin) * 13)
-=pull-13
-  +pull-base
-  :margin-left = !layout_grid_width + !layout_grid_margin - ((!layout_grid_width + !layout_grid_margin) * 14)
-=pull-14
-  +pull-base
-  :margin-left = !layout_grid_width + !layout_grid_margin - ((!layout_grid_width + !layout_grid_margin) * 15)
-=pull-15
-  +pull-base
-  :margin-left = !layout_grid_width + !layout_grid_margin - ((!layout_grid_width + !layout_grid_margin) * 16)
-=pull-16
-  +pull-base
-  :margin-left = !layout_grid_width + !layout_grid_margin - ((!layout_grid_width + !layout_grid_margin) * 17)
-=pull-17
-  +pull-base
-  :margin-left = !layout_grid_width + !layout_grid_margin - ((!layout_grid_width + !layout_grid_margin) * 18)
-=pull-18
-  +pull-base
-  :margin-left = !layout_grid_width + !layout_grid_margin - ((!layout_grid_width + !layout_grid_margin) * 19)
-=pull-19
-  +pull-base
-  :margin-left = !layout_grid_width + !layout_grid_margin - ((!layout_grid_width + !layout_grid_margin) * 20)
-=pull-20
-  +pull-base
-  :margin-left = !layout_grid_width + !layout_grid_margin - ((!layout_grid_width + !layout_grid_margin) * 21)
-=pull-21
-  +pull-base
-  :margin-left = !layout_grid_width + !layout_grid_margin - ((!layout_grid_width + !layout_grid_margin) * 22)
-=pull-22
-  +pull-base
-  :margin-left = !layout_grid_width + !layout_grid_margin - ((!layout_grid_width + !layout_grid_margin) * 23)
-=pull-23
-  +pull-base
-  :margin-left = !layout_grid_width + !layout_grid_margin - ((!layout_grid_width + !layout_grid_margin) * 24)
-=pull-24
-  +pull-base
-  :margin-left = !layout_grid_width + !layout_grid_margin - ((!layout_grid_width + !layout_grid_margin) * 25)
-
-=push-base
-  :float right
-  :position relative
-
-=push-1
-  +push-base
-  :margin
-    :top 0
-    :right = !layout_grid_width + !layout_grid_margin - ((!layout_grid_width + !layout_grid_margin) * 2)
-    :bottom 1.5em
-    :left = !layout_grid_width + !layout_grid_margin
-=push-2
-  +push-base
-  :margin
-    :top 0
-    :right = !layout_grid_width + !layout_grid_margin - ((!layout_grid_width + !layout_grid_margin) * 3)
-    :bottom 1.5em
-    :right = (!layout_grid_width + !layout_grid_margin) * 2
-=push-3
-  +push-base
-  :margin
-    :top 0 
-    :right = !layout_grid_width + !layout_grid_margin - ((!layout_grid_width + !layout_grid_margin) * 4)
-    :bottom 1.5em 
-    :left = (!layout_grid_width + !layout_grid_margin) * 3
-=push-4
-  +push-base
-  :margin
-    :top 0 
-    :right = !layout_grid_width + !layout_grid_margin - ((!layout_grid_width + !layout_grid_margin) * 5)
-    :bottom 1.5em 
-    :left = (!layout_grid_width + !layout_grid_margin) * 4
-=push-5
-  +push-base
-  :margin
-    :top 0 
-    :right = !layout_grid_width + !layout_grid_margin - ((!layout_grid_width + !layout_grid_margin) * 6)
-    :bottom 1.5em 
-    :left = (!layout_grid_width + !layout_grid_margin) * 5
-=push-6
-  +push-base
-  :margin
-    :top 0 
-    :right = !layout_grid_width + !layout_grid_margin - ((!layout_grid_width + !layout_grid_margin) * 7)
-    :bottom 1.5em 
-    :left = (!layout_grid_width + !layout_grid_margin) * 6
-=push-7
-  +push-base
-  :margin
-    :top 0 
-    :right = !layout_grid_width + !layout_grid_margin - ((!layout_grid_width + !layout_grid_margin) * 8)
-    :bottom 1.5em 
-    :left = (!layout_grid_width + !layout_grid_margin) * 7
-=push-8
-  +push-base
-  :margin
-    :top 0 
-    :right = !layout_grid_width + !layout_grid_margin - ((!layout_grid_width + !layout_grid_margin) * 9)
-    :bottom 1.5em 
-    :left = (!layout_grid_width + !layout_grid_margin) * 8
-=push-9
-  +push-base
-  :margin
-    :top 0 
-    :right = !layout_grid_width + !layout_grid_margin - ((!layout_grid_width + !layout_grid_margin) * 10)
-    :bottom 1.5em 
-    :left = (!layout_grid_width + !layout_grid_margin) * 9
-=push-10
-  +push-base
-  :margin
-    :top 0 
-    :right = !layout_grid_width + !layout_grid_margin - ((!layout_grid_width + !layout_grid_margin) * 11)
-    :bottom 1.5em 
-    :left = (!layout_grid_width + !layout_grid_margin) * 10
-=push-11
-  +push-base
-  :margin
-    :top 0 
-    :right = !layout_grid_width + !layout_grid_margin - ((!layout_grid_width + !layout_grid_margin) * 12)
-    :bottom 1.5em 
-    :left = (!layout_grid_width + !layout_grid_margin) * 11
-=push-12
-  +push-base
-  :margin
-    :top 0 
-    :right = !layout_grid_width + !layout_grid_margin - ((!layout_grid_width + !layout_grid_margin) * 13)
-    :bottom 1.5em 
-    :left = (!layout_grid_width + !layout_grid_margin) * 12
-=push-13
-  +push-base
-  :margin
-    :top 0 
-    :right = !layout_grid_width + !layout_grid_margin - ((!layout_grid_width + !layout_grid_margin) * 14)
-    :bottom 1.5em 
-    :left = (!layout_grid_width + !layout_grid_margin) * 13
-=push-14
-  +push-base
-  :margin
-    :top 0 
-    :right = !layout_grid_width + !layout_grid_margin - ((!layout_grid_width + !layout_grid_margin) * 15)
-    :bottom 1.5em 
-    :left = (!layout_grid_width + !layout_grid_margin) * 14
-=push-15
-  +push-base
-  :margin
-    :top 0 
-    :right = !layout_grid_width + !layout_grid_margin - ((!layout_grid_width + !layout_grid_margin) * 16)
-    :bottom 1.5em 
-    :left = (!layout_grid_width + !layout_grid_margin) * 15
-=push-16
-  +push-base
-  :margin
-    :top 0 
-    :right = !layout_grid_width + !layout_grid_margin - ((!layout_grid_width + !layout_grid_margin) * 17)
-    :bottom 1.5em 
-    :left = (!layout_grid_width + !layout_grid_margin) * 16
-=push-17
-  +push-base
-  :margin
-    :top 0 
-    :right = !layout_grid_width + !layout_grid_margin - ((!layout_grid_width + !layout_grid_margin) * 18)
-    :bottom 1.5em 
-    :left = (!layout_grid_width + !layout_grid_margin) * 17
-=push-18
-  +push-base
-  :margin
-    :top 0 
-    :right = !layout_grid_width + !layout_grid_margin - ((!layout_grid_width + !layout_grid_margin) * 19)
-    :bottom 1.5em 
-    :left = (!layout_grid_width + !layout_grid_margin) * 18
-=push-19
-  +push-base
-  :margin
-    :top 0 
-    :right = !layout_grid_width + !layout_grid_margin - ((!layout_grid_width + !layout_grid_margin) * 20)
-    :bottom 1.5em 
-    :left = (!layout_grid_width + !layout_grid_margin) * 19
-=push-20
-  +push-base
-  :margin
-    :top 0 
-    :right = !layout_grid_width + !layout_grid_margin - ((!layout_grid_width + !layout_grid_margin) * 21)
-    :bottom 1.5em 
-    :left = (!layout_grid_width + !layout_grid_margin) * 20
-=push-21
-  +push-base
-  :margin
-    :top 0 
-    :right = !layout_grid_width + !layout_grid_margin - ((!layout_grid_width + !layout_grid_margin) * 22)
-    :bottom 1.5em 
-    :left = (!layout_grid_width + !layout_grid_margin) * 21
-=push-22
-  +push-base
-  :margin
-    :top 0 
-    :right = !layout_grid_width + !layout_grid_margin - ((!layout_grid_width + !layout_grid_margin) * 23)
-    :bottom 1.5em 
-    :left = (!layout_grid_width + !layout_grid_margin) * 22
-=push-23
-  +push-base
-  :margin
-    :top 0 
-    :right = !layout_grid_width + !layout_grid_margin - ((!layout_grid_width + !layout_grid_margin) * 24)
-    :bottom 1.5em 
-    :left = (!layout_grid_width + !layout_grid_margin) * 23
-=push-24
-  +push-base
-  :margin
-    :top 0 
-    :right = !layout_grid_width + !layout_grid_margin - ((!layout_grid_width + !layout_grid_margin) * 25)
-    :bottom 1.5em 
-    :left = (!layout_grid_width + !layout_grid_margin) * 24
-
-
-// The last column in a row needs these styles or it will end up on the next row.
+// The last column in a row needs this mixin or it will end up on the next row.
+// TODO add this to span mixin when we have optional arguments
 =last
   :margin
     :right 0
+
+// Mixin to a column to append n empty cols.
+=append(!n)
+  :padding-right = (!layout_grid_outer_width) * !n
+  
+// Mixin to a column to prepend n empty cols.
+=prepend(!n)
+  :padding-left = (!layout_grid_outer_width) * !n
+
+// mixin to a column to move it n columns to the left
+=pull(!n)
+  :float left
+  :position relative
+  :margin-left = (!layout_grid_outer_width) * (2 - !n)
+
+// mixin to a column to push it n columns to the right
+=push(!n)
+  :float right
+  :position relative
+  :margin
+    :top 0
+    :right = !layout_grid_outer_width * (1 - !n)
+    :bottom 1.5em
+    :left = !layout_grid_outer_width
 
 // Border on right hand side of a column.
 =border
@@ -511,238 +114,239 @@
     div.last
       +last
     // Use these classes (or mixins) to set the width of a column.
+    // TODO: Clean this up when sass script has iteration
     .span-1
-      +span-1
+      +column(1)
     .span-2
-      +span-2
+      +column(2)
     .span-3
-      +span-3
+      +column(3)
     .span-4
-      +span-4
+      +column(4)
     .span-5
-      +span-5
+      +column(5)
     .span-6
-      +span-6
+      +column(6)
     .span-7
-      +span-7
+      +column(7)
     .span-8
-      +span-8
+      +column(8)
     .span-9
-      +span-9
+      +column(9)
     .span-10
-      +span-10
+      +column(10)
     .span-11
-      +span-11
+      +column(11)
     .span-12
-      +span-12
+      +column(12)
     .span-13
-      +span-13
+      +column(13)
     .span-14
-      +span-14
+      +column(14)
     .span-15
-      +span-15
+      +column(15)
     .span-16
-      +span-16
+      +column(16)
     .span-17
-      +span-17
+      +column(17)
     .span-18
-      +span-18
+      +column(18)
     .span-19
-      +span-19
+      +column(19)
     .span-20
-      +span-20
+      +column(20)
     .span-21
-      +span-21
+      +column(21)
     .span-22
-      +span-22
+      +column(22)
     .span-23
-      +span-23
+      +column(23)
     .span-24
-      +span-24
+      +column(24)
     // Add these to a column to append empty cols.
     .append-1
-      +append-1
+      +append(1)
     .append-2
-      +append-2
+      +append(2)
     .append-3
-      +append-3
+      +append(3)
     .append-4
-      +append-4
+      +append(4)
     .append-5
-      +append-5
+      +append(5)
     .append-6
-      +append-6
+      +append(6)
     .append-7
-      +append-7
+      +append(7)
     .append-8
-      +append-8
+      +append(8)
     .append-9
-      +append-9
+      +append(9)
     .append-10
-      +append-10
+      +append(10)
     .append-11
-      +append-11
+      +append(11)
     .append-12
-      +append-12
+      +append(12)
     .append-13
-      +append-13
+      +append(13)
     .append-14
-      +append-14
+      +append(14)
     .append-15
-      +append-15
+      +append(15)
     .append-16
-      +append-16
+      +append(16)
     .append-17
-      +append-17
+      +append(17)
     .append-18
-      +append-18
+      +append(18)
     .append-19
-      +append-19
+      +append(19)
     .append-21
-      +append-21
+      +append(21)
     .append-22
-      +append-22
+      +append(22)
     .append-23
-      +append-23
+      +append(23)
     // Add these to a column to prepend empty cols.
     .prepend-1
-      +prepend-1
+      +prepend(1)
     .prepend-2
-      +prepend-2
+      +prepend(2)
     .prepend-3
-      +prepend-3
+      +prepend(3)
     .prepend-4
-      +prepend-4
+      +prepend(4)
     .prepend-5
-      +prepend-5
+      +prepend(5)
     .prepend-6
-      +prepend-6
+      +prepend(6)
     .prepend-7
-      +prepend-7
+      +prepend(7)
     .prepend-8
-      +prepend-8
+      +prepend(8)
     .prepend-9
-      +prepend-9
+      +prepend(9)
     .prepend-10
-      +prepend-10
+      +prepend(10)
     .prepend-11
-      +prepend-11
+      +prepend(11)
     .prepend-12
-      +prepend-12
+      +prepend(12)
     .prepend-13
-      +prepend-13
+      +prepend(13)
     .prepend-14
-      +prepend-14
+      +prepend(14)
     .prepend-15
-      +prepend-15
+      +prepend(15)
     .prepend-16
-      +prepend-16
+      +prepend(16)
     .prepend-17
-      +prepend-17
+      +prepend(17)
     .prepend-18
-      +prepend-18
+      +prepend(18)
     .prepend-19
-      +prepend-19
+      +prepend(19)
     .prepend-21
-      +prepend-21
+      +prepend(21)
     .prepend-22
-      +prepend-22
+      +prepend(22)
     .prepend-23
-      +prepend-23
+      +prepend(23)
     // Use these classes on an element to push it into the
     // next column, or to pull it into the previous column.
     .pull-1
-      +pull-1
+      +pull(1)
     .pull-2
-      +pull-2
+      +pull(2)
     .pull-3
-      +pull-3
+      +pull(3)
     .pull-4
-      +pull-4
+      +pull(4)
     .pull-5
-      +pull-5
+      +pull(5)
     .pull-6
-      +pull-6
+      +pull(6)
     .pull-7
-      +pull-7
+      +pull(7)
     .pull-8
-      +pull-8
+      +pull(8)
     .pull-9
-      +pull-9
+      +pull(9)
     .pull-10
-      +pull-10
+      +pull(10)
     .pull-11
-      +pull-11
+      +pull(11)
     .pull-12
-      +pull-12
+      +pull(12)
     .pull-13
-      +pull-13
+      +pull(13)
     .pull-14
-      +pull-14
+      +pull(14)
     .pull-15
-      +pull-15
+      +pull(15)
     .pull-16
-      +pull-16
+      +pull(16)
     .pull-17
-      +pull-17
+      +pull(17)
     .pull-18
-      +pull-18
+      +pull(18)
     .pull-19
-      +pull-19
+      +pull(19)
     .pull-21
-      +pull-21
+      +pull(21)
     .pull-22
-      +pull-22
+      +pull(22)
     .pull-23
-      +pull-23
+      +pull(23)
     .pull-24
-      +pull-24
+      +pull(24)
     .push-1
-      +push-1
+      +push(1)
     .push-2
-      +push-2
+      +push(2)
     .push-3
-      +push-3
+      +push(3)
     .push-4
-      +push-4
+      +push(4)
     .push-5
-      +push-5
+      +push(5)
     .push-6
-      +push-6
+      +push(6)
     .push-7
-      +push-7
+      +push(7)
     .push-8
-      +push-8
+      +push(8)
     .push-9
-      +push-9
+      +push(9)
     .push-10
-      +push-10
+      +push(10)
     .push-11
-      +push-11
+      +push(11)
     .push-12
-      +push-12
+      +push(12)
     .push-13
-      +push-13
+      +push(13)
     .push-14
-      +push-14
+      +push(14)
     .push-15
-      +push-15
+      +push(15)
     .push-16
-      +push-16
+      +push(16)
     .push-17
-      +push-17
+      +push(17)
     .push-18
-      +push-18
+      +push(18)
     .push-19
-      +push-19
+      +push(19)
     .push-21
-      +push-21
+      +push(21)
     .push-22
-      +push-22
+      +push(22)
     .push-23
-      +push-23
+      +push(23)
     .push-24
-      +push-24
+      +push(24)
     //*** The following classes are provided for convenience. You can comment them out if you don't want them. ***//
     // Border on right hand side of a column. You can comment this out if you don't plan to use it.
     div.border
