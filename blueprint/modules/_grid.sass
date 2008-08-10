@@ -34,17 +34,20 @@
   :margin 0 auto
   +clearfix
 
-// Use this mixins to set the width of n columns.
-=column(!n)
-  :float left
-  :margin-right = !layout_grid_margin
-  :width = !layout_grid_width * !n + (!layout_grid_margin * (!n - 1))
-
 // The last column in a row needs this mixin or it will end up on the next row.
 // TODO add this to span mixin when we have optional arguments
 =last
   :margin
     :right 0
+
+// Use this mixins to set the width of n columns.
+=column(!n, !last = false)
+  :float left
+  :width = !layout_grid_width * !n + (!layout_grid_margin * (!n - 1))
+  @if !last
+    +last
+  @if ~!last
+    :margin-right = !layout_grid_margin
 
 // Mixin to a column to append n empty cols.
 =append(!n)
@@ -115,7 +118,7 @@
     // Use these classes (or mixins) to set the width of a column.
     @for !n from 1 to !layout_grid_columns + 1
       .span-#{!n}
-        +column(!n)
+        +column(!n, !n == !layout_grid_columns)
     // Add these to a column to append empty cols.
     @for !n from 1 to !layout_grid_columns
       .append-#{!n}
