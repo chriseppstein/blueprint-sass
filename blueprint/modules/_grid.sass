@@ -46,7 +46,7 @@
   :width = !layout_grid_width * !n + (!layout_grid_margin * (!n - 1))
   @if !last
     +last
-  @if ~!last
+  @if !!last
     :margin-right = !layout_grid_margin
 
 // Mixin to a column to append n empty cols.
