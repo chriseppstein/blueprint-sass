@@ -9,8 +9,9 @@
 // !link_hover_color= !link_color
 !link_color= #457ac9
 !link_hover_color= #399999
-!link_focus_color= #000
+!link_focus_color= !link_color
 !link_active_color= !link_color + #c00
+!link_visited_color= !link_color - #333
 
 !success_color        = #264409
 !success_bg_color     = #E6EFC2
@@ -24,11 +25,13 @@
 !error_bg_color     = #FBE3E4
 !error_border_color = #FBC2C4
 
-=link-colors
-  :color= !link_color
+=link-colors(!normal = !link_color, !hover = !link_hover_color, !active = !link_active_color, !visited = !link_visited_color, !focus = !link_focus_color)
+  :color= !normal
   &:hover
-    :color= !link_hover_color
+    :color= !hover
   &:active
-    :color= !link_active_color
+    :color= !active
+  &:visited
+    :color= !visited
   &:focus
-    :color= !link_focus_color
+    :color= !focus
