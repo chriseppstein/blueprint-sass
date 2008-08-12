@@ -5,7 +5,13 @@
 // This is recommended now:
 // [http://www.sitepoint.com/examples/clearing_floats/example2.php]
 =clearfix
-  :overflow auto
+  :overflow none
+  // This makes ie6 get layout
+  html &
+    :display inline-block
+  // and this puts it back to block
+  html &
+    :display block
 
 =nowrap
   :white-space nowrap
