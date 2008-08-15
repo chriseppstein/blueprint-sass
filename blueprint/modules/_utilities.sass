@@ -5,7 +5,7 @@
 // This is recommended now:
 // [http://www.sitepoint.com/examples/clearing_floats/example2.php]
 =clearfix
-  :overflow none
+  :overflow auto
   // This makes ie6 get layout
   html &
     :display inline-block
@@ -16,25 +16,11 @@
 =nowrap
   :white-space nowrap
 
-=highlight
-  :background #ff0
-
-=added
-  :background #060
-  :color #fff
-
-=removed
-  :background #900
-  :color #fff
-
 
 // Most of these utility classes are not "semantic". If you use them,
 // you are mixing your content and presentation. For shame!
 
 =blueprint-utilities
-  // Use this class on any div.span / container to see the grid.
-  .showgrid
-    :background url(/images/grid.png) 
   // Regular clearing apply to column that should drop below previous ones.
   .clear
     :clear both
@@ -53,14 +39,6 @@
     :font-size 1.2em
     :line-height 2.5em
     :margin-bottom 1.25em
-  .hide
-    :display none
-  .highlight
-    +highlight
-  .added
-    +added
-  .removed
-    +removed
   .first
     :margin-left 0
     :padding-left 0

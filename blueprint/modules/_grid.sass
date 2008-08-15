@@ -40,10 +40,13 @@
   :margin
     :right 0
 
+=span(!n)
+  :width = !layout_grid_width * !n + (!layout_grid_margin * (!n - 1))
+
 // Use this mixins to set the width of n columns.
 =column(!n, !last = false)
   :float left
-  :width = !layout_grid_width * !n + (!layout_grid_margin * (!n - 1))
+  +span(!n)
   @if !last
     +last
   @if !!last
@@ -52,7 +55,7 @@
 // Mixin to a column to append n empty cols.
 =append(!n)
   :padding-right = (!layout_grid_outer_width) * !n
-  
+
 // Mixin to a column to prepend n empty cols.
 =prepend(!n)
   :padding-left = (!layout_grid_outer_width) * !n
@@ -61,7 +64,7 @@
 =pull(!n)
   :float left
   :position relative
-  :margin-left = (!layout_grid_outer_width) * (2 - !n)
+  :margin-left = -!layout_grid_outer_width * !n
 
 // mixin to a column to push it n columns to the right
 =push(!n)
@@ -69,9 +72,9 @@
   :position relative
   :margin
     :top 0
-    :right = !layout_grid_outer_width * (1 - !n)
+    :right = -!layout_grid_outer_width * !n
     :bottom 1.5em
-    :left = !layout_grid_outer_width
+    :left = -!layout_grid_outer_width * !n
 
 // Border on right hand side of a column.
 =border
@@ -81,26 +84,20 @@
 
 // Border with more whitespace, spans one column.
 =colborder
-  :padding-right 38px
-  :margin-right 35px
+  :padding-right= !layout_grid_width - 0.5 * !layout_grid_margin - 1
+  :margin-right= !layout_grid_width - 0.5 * !layout_grid_margin
   :border-right 1px solid #eee
-
-// Mixin +box to create a padded box inside a column.
-=box
-  :padding 1.5em 
-  :margin-bottom 1.5em 
-  :background #E5ECF9 
 
 // Mixin this to an hr to make a horizontal ruler across a column.
 =colruler
-  :background #ddd 
+  :background #ddd
   :color #ddd
-  :clear both 
-  :float none 
-  :width 100% 
+  :clear both
+  :float none
+  :width 100%
   :height .1em
   :margin 0 0 1.45em
-  :border none 
+  :border none
 
 // Mixin this to an hr to make a horizontal spacer across a column.
 =colspacer
@@ -112,13 +109,16 @@
   // A container should group all your columns
   .container
     +container
-    // The last column in a row needs this class (or mixin) or it will end up on the next row.
-    div.last
-      +last
     // Use these classes (or mixins) to set the width of a column.
     @for !n from 1 to !layout_grid_columns + 1
       .span-#{!n}
-        +column(!n, !n == !layout_grid_columns)
+        +span(!n)
+      div
+        &.span-#{!n}
+          +column(!n, !n == !layout_grid_columns)
+    // The last column in a row needs this class (or mixin) or it will end up on the next row.
+    div.last
+      +last
     // Add these to a column to append empty cols.
     @for !n from 1 to !layout_grid_columns
       .append-#{!n}
@@ -144,5 +144,5 @@
       +colborder
     hr
       +colruler
-    hr.spacer
+    hr.space
       +colspacer

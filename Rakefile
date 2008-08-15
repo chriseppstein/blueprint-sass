@@ -56,7 +56,21 @@ task :examples do
       output.write(engine.render)
       output.close      
     end
+    # copy any other non-haml and non-sass files directly over
     target_dir = "compiled_examples/#{example.sub(%r{.*/},'')}"
-    FileUtils.cp_r("#{example}/images", target_dir) if File.exists?("#{example}/images")
+    other_files = FileList["#{example}/**/*"]
+    other_files.exclude "**/*.sass", "*.haml"
+    other_files.each do |file|
+      
+      if File.directory?(file)
+        FileUtils.mkdir_p(file)
+      elsif File.file?(file)
+        target_file = "#{target_dir}/#{file[(example.size+1)..-1]}"
+        # puts "mkdir -p #{File.dirname(target_file)}"
+        FileUtils.mkdir_p(File.dirname(target_file))
+        # puts "cp #{file} #{target_file}"
+        FileUtils.cp(file, target_file)
+      end
+    end
   end
 end
