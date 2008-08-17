@@ -65,15 +65,18 @@
   :font-weight bold
   :padding 0 2px
 
-=fancy-type
-  .caps
-    +caps
+=fancy-paragraphs
+  p + p
+    +sibling-indentation
   p.incr,
   .incr p
     +incr
+
+=fancy-type
+  +fancy-paragraphs
+  .caps
+    +caps
   .dquo
     +dquo
   .alt
     +alt
-  p + p
-    +sibling-indentation
